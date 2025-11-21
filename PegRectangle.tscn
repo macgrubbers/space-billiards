@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2o3by5caonjo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_lqmjn"]
+size = Vector3(40, 20, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ona7t"]
+size = Vector2(40, 20)
+
+[node name="PegRectangle" type="RigidBody2D"]
+collision_layer = 3
+collision_mask = 2
+freeze = true
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+mesh = SubResource("BoxMesh_lqmjn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ona7t")
+debug_color = Color(0.6431373, 1, 0, 0.41960785)

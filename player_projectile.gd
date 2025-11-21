@@ -17,8 +17,8 @@ func init(impulse_dir:Vector2):
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.is_in_group("Planet"):
-		queue_free()
-	elif body.is_in_group("Peg"):
-		body.peg_hit()
-		#body.queue_free()
+	pass
+	#if body.is_in_group("Planet"):
+		#queue_free()
+	#elif body.is_in_group("Peg"):
+		#body.peg_hit()

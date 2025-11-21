@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bi8mrinl0e3uc" path="res://player_singshot.gd" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://ca1beu66fwh4r" path="res://world.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://bww1p8yqjjnxw" path="res://Planet.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://2o3by5caonjo" path="res://PegRectangle.tscn" id="4_036b0"]
 [ext_resource type="PackedScene" uid="uid://datcygb5cf1lx" path="res://peg.tscn" id="4_aqk2v"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
@@ -33,10 +33,32 @@ offset = Vector2(580, 320)
 
 [node name="StageLayout" type="Node2D" parent="."]
 
-[node name="Planet" parent="StageLayout" instance=ExtResource("2_fj7yv")]
-position = Vector2(1976, 306)
-mesh_radius = 1000.0
-gravity_radius = 5000.0
-
 [node name="Peg" parent="StageLayout" instance=ExtResource("4_aqk2v")]
-position = Vector2(401, 274)
+position = Vector2(400, 179)
+
+[node name="PegRectangle" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(418, 260)
+
+[node name="PegRectangle2" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(601.00006, 347.00006)
+rotation = 0.87266463
+
+[node name="PegRectangle3" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(536.99994, 293)
+rotation = 0.5235988
+
+[node name="PegRectangle4" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(626, 381.00006)
+rotation = 1.0471976
+
+[node name="PegRectangle5" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(570.99994, 316.99997)
+rotation = 0.6981317
+
+[node name="PegRectangle6" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(499.00003, 275)
+rotation = 0.34906584
+
+[node name="PegRectangle7" parent="StageLayout" instance=ExtResource("4_036b0")]
+position = Vector2(460.00003, 264)
+rotation = 0.17453292

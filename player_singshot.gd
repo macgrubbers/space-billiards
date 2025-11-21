@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_pressed("LMB"):
+	if Input.is_action_just_released("LMB"):
 		var new_projectile = projectile.instantiate()
 		get_tree().root.add_child(new_projectile)
 		new_projectile.set_position(barrel.get_global_position())

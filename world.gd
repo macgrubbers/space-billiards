@@ -1,18 +1,18 @@
 extends Node2D
 
-@onready var peg = preload("res://peg.tscn")
+@onready var camera = $Camera2D
+@onready var player_slingshot = $PlayerSlingshot
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
-	#for n in range(30):
-		#var new_peg = peg.instantiate()
-		#new_peg.set_position(Vector2(680 + randf_range(-170,170), 
-									 #330 + randf_range(-170,170)))
-		#add_child(new_peg)
+	call_deferred("post_ready")
 
 
+func post_ready():
+	player_slingshot.connect("just_shot", player_just_shot)
+	print(player_slingshot)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func player_just_shot(bullet_ref):
+	print("shot")
+	camera.set_target(bullet_ref)

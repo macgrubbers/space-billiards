@@ -1,64 +1,99 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3kngrmllqu8o"]
+[gd_scene load_steps=9 format=3 uid="uid://b3kngrmllqu8o"]
 
 [ext_resource type="Script" uid="uid://bi8mrinl0e3uc" path="res://player_singshot.gd" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://ca1beu66fwh4r" path="res://world.gd" id="1_tlwt5"]
-[ext_resource type="PackedScene" uid="uid://2o3by5caonjo" path="res://PegRectangle.tscn" id="4_036b0"]
-[ext_resource type="PackedScene" uid="uid://datcygb5cf1lx" path="res://peg.tscn" id="4_aqk2v"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_f3sb7"]
-size = Vector3(5, 1, 1)
+[ext_resource type="Texture2D" uid="uid://dqac33cd2ufun" path="res://Assets/starry background.jpg" id="2_dwbse"]
+[ext_resource type="Texture2D" uid="uid://cw4ny18jfk75v" path="res://Assets/pngtree-cannon-ramadan-kareem-png-image_4485284.png" id="4_pkg7o"]
+[ext_resource type="Texture2D" uid="uid://bjtaq3366k5m2" path="res://Assets/top-view-looking-down-on-600w-2354793659.webp" id="5_dwbse"]
+[ext_resource type="Script" uid="uid://dqywxblkp2vqf" path="res://camera_2d.gd" id="5_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://c0unmqk1654qd" path="res://Pegs/Structures/Segment.tscn" id="7_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://2o3by5caonjo" path="res://Pegs/PegRectangle.tscn" id="8_gbfbk"]
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_tlwt5")
 
-[node name="Background" type="ColorRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 648.0
-color = Color(0.18717614, 0.18717614, 0.18717614, 1)
+[node name="background" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("2_dwbse")
 
-[node name="PlayerSingshot" type="Node2D" parent="."]
+[node name="PlayerSlingshot" type="Node2D" parent="."]
 position = Vector2(50, 300)
 script = ExtResource("1_f3sb7")
 
-[node name="Shooter" type="MeshInstance2D" parent="PlayerSingshot"]
-position = Vector2(25.999996, -0.99999994)
-scale = Vector2(10, 10)
-mesh = SubResource("BoxMesh_f3sb7")
+[node name="Shooter" type="Sprite2D" parent="PlayerSlingshot"]
+position = Vector2(33.000008, 2)
+rotation = 0.7853982
+scale = Vector2(0.6000001, 0.6000001)
+texture = ExtResource("4_pkg7o")
 
-[node name="Barrel" type="Node2D" parent="PlayerSingshot/Shooter"]
-position = Vector2(2.6666667, 0)
+[node name="Barrel" type="Node2D" parent="PlayerSlingshot/Shooter"]
+position = Vector2(97.81641, -114.31558)
+scale = Vector2(4.9999995, 4.9999995)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(580, 320)
+script = ExtResource("5_pkg7o")
 
-[node name="StageLayout" type="Node2D" parent="."]
+[node name="ship" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.27450982)
+position = Vector2(2028, 286)
+rotation = -3.1415925
+scale = Vector2(5, 5)
+texture = ExtResource("5_dwbse")
 
-[node name="Peg" parent="StageLayout" instance=ExtResource("4_aqk2v")]
-position = Vector2(400, 179)
+[node name="Corridor" type="Node2D" parent="ship"]
+position = Vector2(219.5393, -20.402128)
+scale = Vector2(0.25, 0.25)
 
-[node name="PegRectangle" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(418, 260)
+[node name="Segment1" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(120, 25)
 
-[node name="PegRectangle2" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(601.00006, 347.00006)
-rotation = 0.87266463
+[node name="Segment2" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(-280, 25)
 
-[node name="PegRectangle3" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(536.99994, 293)
+[node name="Segment3" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(120, -20)
+rotation = -3.1415925
+
+[node name="Segment4" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(-280, -20)
+rotation = -3.1415925
+
+[node name="Segment5" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(-80, 25)
+
+[node name="Segment6" parent="ship/Corridor" instance=ExtResource("7_pkg7o")]
+position = Vector2(-80, -20)
+rotation = -3.1415925
+
+[node name="PegRectangle" parent="ship/Corridor" instance=ExtResource("8_gbfbk")]
+position = Vector2(-362.35132, -29.239338)
+rotation = -0.5235988
+
+[node name="PegRectangle2" parent="ship/Corridor" instance=ExtResource("8_gbfbk")]
+position = Vector2(-362.8463, 34.03988)
 rotation = 0.5235988
 
-[node name="PegRectangle4" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(626, 381.00006)
-rotation = 1.0471976
+[node name="LeftFrontSide" type="Node2D" parent="ship"]
+position = Vector2(186.2495, -46.25932)
+scale = Vector2(0.25, 0.25)
 
-[node name="PegRectangle5" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(570.99994, 316.99997)
-rotation = 0.6981317
+[node name="PegRectangle" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
+position = Vector2(297.99924, 33.603386)
+rotation = -2.5036287
 
-[node name="PegRectangle6" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(499.00003, 275)
-rotation = 0.34906584
+[node name="PegRectangle2" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
+position = Vector2(330.17523, 51.496155)
+rotation = 0.4199969
 
-[node name="PegRectangle7" parent="StageLayout" instance=ExtResource("4_036b0")]
-position = Vector2(460.00003, 264)
-rotation = 0.17453292
+[node name="PegRectangle3" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
+position = Vector2(198.50114, -30.548653)
+rotation = -2.5036287
+
+[node name="PegRectangle4" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
+position = Vector2(230.18213, -6.9825935)
+rotation = -2.5036287
+
+[node name="PegRectangle5" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
+position = Vector2(266.31824, 12.655781)
+rotation = -2.5471826

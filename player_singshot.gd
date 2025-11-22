@@ -10,6 +10,8 @@ var current_state = States.READY
 @onready var barrel = $Shooter/Barrel
 @onready var projectile = preload("res://PlayerProjectile.tscn")
 
+signal just_shot(bullet_ref)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -18,7 +20,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if current_state == States.READY:
-		shooter.look_at(get_global_mouse_position())
+		look_at(get_global_mouse_position())
+
 
 
 func _input(event: InputEvent) -> void:
@@ -30,6 +33,7 @@ func _input(event: InputEvent) -> void:
 		# Apply a force in the direction of the mouse
 		var aim_direction = get_global_position().direction_to(get_global_mouse_position())
 		new_projectile.init(aim_direction)
+		emit_signal("just_shot", new_projectile)
 
 
 func fire()->void:

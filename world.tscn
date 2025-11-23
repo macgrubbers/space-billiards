@@ -30,6 +30,11 @@ texture = ExtResource("4_pkg7o")
 position = Vector2(97.81641, -114.31558)
 scale = Vector2(4.9999995, 4.9999995)
 
+[node name="Line2D" type="Line2D" parent="PlayerSlingshot/Shooter/Barrel"]
+points = PackedVector2Array(0, 0, 30, -30)
+width = 3.0
+default_color = Color(1, 0, 0, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(580, 320)
 script = ExtResource("5_pkg7o")
@@ -77,23 +82,3 @@ rotation = 0.5235988
 [node name="LeftFrontSide" type="Node2D" parent="ship"]
 position = Vector2(186.2495, -46.25932)
 scale = Vector2(0.25, 0.25)
-
-[node name="PegRectangle" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
-position = Vector2(297.99924, 33.603386)
-rotation = -2.5036287
-
-[node name="PegRectangle2" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
-position = Vector2(330.17523, 51.496155)
-rotation = 0.4199969
-
-[node name="PegRectangle3" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
-position = Vector2(198.50114, -30.548653)
-rotation = -2.5036287
-
-[node name="PegRectangle4" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
-position = Vector2(230.18213, -6.9825935)
-rotation = -2.5036287
-
-[node name="PegRectangle5" parent="ship/LeftFrontSide" instance=ExtResource("8_gbfbk")]
-position = Vector2(266.31824, 12.655781)
-rotation = -2.5471826

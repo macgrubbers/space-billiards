@@ -11,9 +11,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if target:
-		offset = target.get_global_position()
+		offset = offset.lerp(target.get_global_position(),.15)
 	else:
-		offset = origin_offset
+		offset = offset.lerp(origin_offset,.15)
 
 
 func set_target(target_ref):

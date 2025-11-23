@@ -47,8 +47,4 @@ rotation = -1.570327
 scale = Vector2(19.979721, 10.716488)
 mesh = SubResource("PrismMesh_jbg7j")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 5.0
-
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
